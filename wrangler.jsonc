@@ -1,0 +1,12 @@
+// This file tells your where to do what...
+
+{
+  "name": "leahnewman-net",
+  "main": "./Java/worker.js",
+  "compatibility_date": "2026-10-13",
+  "assets": {
+    "directory": "./src",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  }
+}
