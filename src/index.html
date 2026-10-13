@@ -41,6 +41,7 @@
     .page { width: min(100% - 64px, 1000px); margin: 0 auto; padding: 112px 0 64px; }
     header { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 76px; }
     h1 { margin: 0; color: var(--pink); font-size: clamp(36px, 5vw, 52px); font-weight: 600; line-height: 1.15; letter-spacing: -1px; }
+    .subtitle { margin: 12px 0 0; color: var(--pink); font-size: 18px; line-height: 1.5; }
     .theme { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--text); cursor: pointer; }
     .theme::before { content: ""; width: 24px; height: 24px; border: 2px solid currentColor; border-radius: 50%; }
     .theme:hover { color: var(--pink); }
@@ -60,14 +61,17 @@
   <button class="theme" id="dark-mode" type="button" aria-label="Dark mode" aria-pressed="false" title="Toggle dark mode"></button>
   <div class="page">
     <header>
-      <h1>Leah Newman</h1>
+      <div>
+        <h1>Leah Newman</h1>
+        <p class="subtitle">Foundation scholar &middot; Naughton scholar &middot; Nerd</p>
+      </div>
     </header>
     <main>
       <!-- EDIT YOUR WEBSITE TEXT HERE.
            Type between <p> and </p> below. Add another <p>...</p> for each paragraph.
            You can add headings with <h2>About me</h2>.
            These comments do not appear on the website. -->
-      <p> I am an undergraduate researcher, hardware builder and I really like ducks.</p>
+      <p> I am an undergraduate researcher, hardware builder and I really like <a href="ducks.html">ducks</a>.</p>
       <p> I work on everything from bespoke <a href="neurorehab.html">assistive devices</a> for people living with neurological disabilities to <a href="robotics.html">robotics</a> and wireless debugging tools. I’m particularly interested in neural engineering and turning mathematical ideas into things that work in the real world.</p>
       <p> I study biomedical engineering at Trinity College Dublin, and I am a nerd for creative technical problem solving </p>
       <p> Alongside my own projects, I help other young builders develop theirs through <a href="https://joinpatch.org">Patch</a>, where I’ve worked as an Associate and now lead Grants.</p>
