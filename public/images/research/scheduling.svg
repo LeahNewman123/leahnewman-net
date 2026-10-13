@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-label="Placeholder clinic scheduling board">
+  <rect width="640" height="420" rx="18" fill="#f7f1e6"/>
+  <rect x="80" y="78" width="480" height="260" rx="12" fill="#edf4f5" stroke="#102033" stroke-width="8"/>
+  <path d="M80 145h480M80 208h480M80 271h480M200 78v260M320 78v260M440 78v260" stroke="#102033" stroke-opacity=".3" stroke-width="5"/>
+  <rect x="104" y="164" width="84" height="28" rx="8" fill="#758f73"/>
+  <rect x="224" y="226" width="84" height="28" rx="8" fill="#e5b94f"/>
+  <rect x="344" y="100" width="84" height="28" rx="8" fill="#2f5f8f"/>
+  <rect x="462" y="290" width="72" height="28" rx="8" fill="#b8654b"/>
+  <text x="92" y="386" fill="#102033" font-family="Arial" font-size="22" font-weight="700">clinic scheduling placeholder</text>
+</svg>
