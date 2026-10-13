@@ -2,7 +2,7 @@
 
 {
   "name": "leahnewman-net",
-  "main": "./Java/worker.js",
+  "main": "./java/worker.js",
   "compatibility_date": "2026-10-13",
   "assets": {
     "directory": "./src",
