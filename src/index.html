@@ -1,125 +1,88 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Leah Newman is a Biomedical Engineering student at Trinity College Dublin, working on assistive technology, embedded systems and robotics.">
+  <meta name="description" content="Leah Newman's personal website.">
   <title>Leah Newman</title>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('leah-theme');
+      document.documentElement.dataset.theme = savedTheme === 'dark' || savedTheme === 'light'
+        ? savedTheme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch { }
+  </script>
   <style>
-    body { font-family: Calibri, Arial, sans-serif; }
-    h1, h2, h3, h4, h5, h6 { color: #c2185b; }
+    :root {
+      color-scheme: light;
+      --background: #fff9fc;
+      --text: #332b30;
+      --pink: #b51d61;
+      --muted: #796570;
+      --focus: #d775a0;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --background: #1b181b;
+      --text: #f1e8ed;
+      --pink: #f497c0;
+      --muted: #bba6b2;
+      --focus: #f497c0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Calibri, Candara, Arial, sans-serif;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+    .page { width: min(100% - 64px, 1000px); margin: 0 auto; padding: 112px 0 64px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 76px; }
+    h1 { margin: 0; color: var(--pink); font-size: clamp(36px, 5vw, 52px); font-weight: 600; line-height: 1.15; letter-spacing: -1px; }
+    .theme { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--text); cursor: pointer; }
+    .theme::before { content: ""; width: 24px; height: 24px; border: 2px solid currentColor; border-radius: 50%; }
+    .theme:hover { color: var(--pink); }
+    main { max-width: 740px; }
+    main p { margin: 0 0 24px; line-height: 1.8; }
+    main h2 { color: var(--pink); font-size: 26px; margin: 48px 0 20px; }
+    main a { color: var(--pink); }
+    :focus-visible { outline: 2px solid var(--focus); outline-offset: 8px; }
+    @media (max-width: 600px) {
+      .page { width: calc(100% - 40px); padding-top: 56px; }
+      header { align-items: flex-start; flex-direction: column; gap: 24px; margin-bottom: 44px; }
+      body { font-size: 18px; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Leah Newman</h1>
-    <p>Biomedical Engineering student at Trinity College Dublin · Foundation Scholar · Naughton Scholar</p>
-    <nav aria-label="Main navigation">
-      <a href="#about">About</a> ·
-      <a href="#experience">Experience</a> ·
-      <a href="#projects">Projects</a> ·
-      <a href="#education">Education</a> ·
-      <a href="#outreach">Outreach</a> ·
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-  <main>
-    <section id="about" aria-labelledby="about-heading">
-      <h2 id="about-heading">About me</h2>
-      <p>I’m a third-year Biomedical Engineering student at Trinity College Dublin, with interests in robotics, electronics, medical devices and computational engineering. My work spans embedded systems, hardware prototyping and neurological disability research, from wireless debugging tools to bespoke 3D-printed assistive devices.</p>
-      <p>Based in Drogheda and Dublin.</p>
-      <p><a href="cv/LeahNewmanCV.pdf" download>Download my CV (PDF)</a></p>
-    </section>
-
-    <section id="experience" aria-labelledby="experience-heading">
-      <h2 id="experience-heading">Experience</h2>
-      <article>
-        <h3>Patch Associate and Grants Lead</h3>
-        <p>Dogpatch Labs · May 2026–present</p>
-        <p>I support the Patch accelerator through participant mentoring, workshops, hackathons and Demo Day. As Grants Lead, I review technical feasibility, budgets and development plans, interview applicants, provide technical feedback and connect grantees with relevant mentors.</p>
-      </article>
-      <article>
-        <h3>Student Researcher in Neurological Disability and Assistive Technology</h3>
-        <p>Beaumont Hospital, Trinity College Dublin and Dublin City University · May 2025–present</p>
-        <p>Across two summers, I researched bespoke assistive devices and digital technologies for neurological disability care, collaborating with clinicians and engineers to design and prototype 3D-printed devices for individual functional needs.</p>
-        <ul>
-          <li>Developed a national clinician survey on 3D printing in neurological rehabilitation and barriers to adoption.</li>
-          <li>Built a multidisciplinary clinic scheduling system to coordinate appointments and clinician availability, aiming to improve patient flow and reduce waiting times.</li>
-          <li>Presented assistive-device research at MND Global Awareness Day 2025.</li>
-        </ul>
-      </article>
-      <article>
-        <h3>Patch Summer Accelerator</h3>
-        <p>June–August 2025</p>
-        <p>Selected as one of 35 participants nationally. Working in a team of four, I co-developed ScopeLab, a prototype wireless debugging tool for robotics systems.</p>
-      </article>
-    </section>
-
-    <section id="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Projects</h2>
-      <article>
-        <h3>Wi-Fi Controlled Robotic Buggy</h3>
-        <p>January–April 2026</p>
-        <p>I developed Arduino firmware and a Processing interface for wireless control and live monitoring. The buggy integrated motor control, encoder feedback, ultrasonic obstacle sensing and infrared line sensors. I implemented and evaluated PID speed-profile tracking using recorded speed data and error measurements.</p>
-      </article>
-      <article>
-        <h3>ScopeLab</h3>
-        <p>July–August 2025</p>
-        <p>I co-founded ScopeLab to enable wireless, real-time monitoring of robotics data and system health. I led numerical, computational and mechanical development, including signal decoding, ASCII conversion, data display and CAD models for the enclosure.</p>
-      </article>
-      <article>
-        <h3>Out of This World Rollercoasters</h3>
-        <p>January–May 2024</p>
-        <p>I modelled rollercoaster motion under different planetary gravitational conditions, accounting for friction and air resistance. The project received the SciFest Maths in Science Award.</p>
-      </article>
-      <article>
-        <h3>The MultiTasker - Modular Assistive Device</h3>
-        <p>May 2021–July 2024</p>
-        <p>A customisable, 3D-printed tool for people with limited hand mobility, designed around each user’s needs. The project won three awards at regional and national levels.</p>
-      </article>
-    </section>
-
-    <section id="education" aria-labelledby="education-heading">
-      <h2 id="education-heading">Education and awards</h2>
-      <h3>Trinity College Dublin</h3>
-      <p>Integrated Engineering programme, Biomedical Engineering stream — Year 3. Foundation Scholar and Naughton Foundation Scholar (2024).</p>
-      <p>My studies include programming, electronics, signals and systems, mechanics and materials. I achieved 86% in first year and 83% in second year.</p>
-      <h3>St Oliver’s Community College</h3>
-      <p>Leaving Certificate 2024: 625 points and seven H1s, including 100% in Physics, Technology, Mathematics and Applied Mathematics.</p>
-      <h3>Selected awards and competitions</h3>
-      <ul>
-        <li>ETTA top Leaving Certificate Technology result and national finalist project.</li>
-        <li>First place, AMTCE 3D Printing and Engineering Competition.</li>
-        <li>SciFest Boston Scientific Award, Maths in Science Award, video outreach award and national finalist.</li>
-        <li>Irish Mathematics Olympiad finalist, placing seventh in Maynooth.</li>
-        <li>IMTA Junior Mathematics Competition finalist.</li>
-      </ul>
-    </section>
-
-    <section id="skills" aria-labelledby="skills-heading">
-      <h2 id="skills-heading">Technical skills</h2>
-      <dl>
-        <dt>Programming and embedded systems</dt>
-        <dd>C++, Arduino, Processing and sensor integration.</dd>
-        <dt>CAD and fabrication</dt>
-        <dd>SolidWorks, Onshape, machining, 3D printing and assembly.</dd>
-        <dt>Electronics</dt>
-        <dd>LTspice and oscilloscope use.</dd>
-        <dt>Control and computation</dt>
-        <dd>PID control and mathematical modelling.</dd>
-      </dl>
-    </section>
-
-    <section id="outreach" aria-labelledby="outreach-heading">
-      <h2 id="outreach-heading">STEM outreach</h2>
-      <p>I enjoy helping students explore engineering and research through their own projects. I judge my secondary school’s annual SciFest at Schools competition and the AMTCE regional 3D printing and engineering competition, which my team won in Transition Year.</p>
-      <p>As a SciFest mentor, I guide students in the early stages of projects for regional and national competitions.</p>
-    </section>
-
-    <section id="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <p><a href="mailto:newmanle@tcd.ie">newmanle@tcd.ie</a></p>
-    </section>
-  </main>
+  <button class="theme" id="dark-mode" type="button" aria-label="Dark mode" aria-pressed="false" title="Toggle dark mode"></button>
+  <div class="page">
+    <header>
+      <h1>Leah Newman</h1>
+    </header>
+    <main>
+      <!-- EDIT YOUR WEBSITE TEXT HERE.
+           Type between <p> and </p> below. Add another <p>...</p> for each paragraph.
+           You can add headings with <h2>About me</h2>.
+           These comments do not appear on the website. -->
+      <p> I am an undergraduate researcher, hardware builder and I really like ducks.</p>
+      <p> I work on everything from bespoke <a href="neurorehab.html">assistive devices</a> for people living with neurological disabilities to <a href="robotics.html">robotics</a> and wireless debugging tools. I’m particularly interested in neural engineering and turning mathematical ideas into things that work in the real world.</p>
+      <p> I study biomedical engineering at Trinity College Dublin, and I am a nerd for creative technical problem solving </p>
+      <p> Alongside my own projects, I help other young builders develop theirs through <a href="https://joinpatch.org">Patch</a>, where I’ve worked as an Associate and now lead Grants.</p>
+      <!-- END OF YOUR WEBSITE TEXT -->
+    </main>
+  </div>
+  <script>
+    const theme = document.getElementById('dark-mode');
+    theme.setAttribute('aria-pressed', document.documentElement.dataset.theme === 'dark');
+    theme.addEventListener('click', () => {
+      const value = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = value;
+      theme.setAttribute('aria-pressed', value === 'dark');
+      try { localStorage.setItem('leah-theme', value); } catch { }
+    });
+  </script>
 </body>
 </html>
