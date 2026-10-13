@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Leah Newman's duck page.">
+  <title>Crafts | Leah Newman</title>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('leah-theme');
+      document.documentElement.dataset.theme = savedTheme === 'dark' || savedTheme === 'light'
+        ? savedTheme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch { }
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #fff9fc;
+      --text: #332b30;
+      --pink: #b51d61;
+      --muted: #796570;
+      --focus: #d775a0;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --background: #1b181b;
+      --text: #f1e8ed;
+      --pink: #f497c0;
+      --muted: #bba6b2;
+      --focus: #f497c0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Calibri, Candara, Arial, sans-serif;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+    .page { width: min(100% - 64px, 1000px); margin: 0 auto; padding: 112px 0 64px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 76px; }
+    h1 { margin: 0; color: var(--pink); font-size: clamp(36px, 5vw, 52px); font-weight: 600; line-height: 1.15; letter-spacing: -1px; }
+    .theme { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--text); cursor: pointer; }
+    .theme::before { content: ""; width: 24px; height: 24px; border: 2px solid currentColor; border-radius: 50%; }
+    .theme:hover { color: var(--pink); }
+    main { max-width: 740px; }
+    main p { margin: 0 0 24px; line-height: 1.8; }
+    main h2 { color: var(--pink); font-size: 26px; margin: 48px 0 20px; }
+    main a { color: var(--pink); }
+    :focus-visible { outline: 2px solid var(--focus); outline-offset: 8px; }
+    @media (max-width: 600px) {
+      .page { width: calc(100% - 40px); padding-top: 56px; }
+      header { align-items: flex-start; flex-direction: column; gap: 24px; margin-bottom: 44px; }
+      body { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme" id="dark-mode" type="button" aria-label="Dark mode" aria-pressed="false" title="Toggle dark mode"></button>
+  <div class="page">
+    <header>
+      <h1>Ducks</h1>
+    </header>
+    <main>
+      <nav aria-label="Page navigation">
+        <p><a href="index.html">Home</a></p>
+      </nav>
+      <p>I am quite creative</p>
+      <!-- ADD YOUR DUCK PHOTOS AND STORIES HERE.
+           Use <h2>Heading</h2> and <p>Your text</p> to add more. -->
+    </main>
+  </div>
+  <script>
+    const theme = document.getElementById('dark-mode');
+    theme.setAttribute('aria-pressed', document.documentElement.dataset.theme === 'dark');
+    theme.addEventListener('click', () => {
+      const value = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = value;
+      theme.setAttribute('aria-pressed', value === 'dark');
+      try { localStorage.setItem('leah-theme', value); } catch { }
+    });
+  </script>
+</body>
+</html>
