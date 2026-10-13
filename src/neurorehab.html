@@ -44,7 +44,14 @@
     .theme { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--text); cursor: pointer; }
     .theme::before { content: ""; width: 24px; height: 24px; border: 2px solid currentColor; border-radius: 50%; }
     .theme:hover { color: var(--pink); }
-    main { max-width: 740px; }
+    main { max-width: 1000px; }
+    .devices-project { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; margin-top: 40px; }
+    .devices-photo { display: block; width: 100%; height: auto; border-radius: 12px; }
+    .devices-figure { margin: 0; }
+    .devices-figure figcaption { margin-top: 12px; color: var(--muted); font-family: Georgia, 'Times New Roman', serif; font-size: 16px; line-height: 1.5; }
+    .devices-copy { min-height: 300px; }
+    .devices-copy h2 { margin-top: 0; }
+    .text-placeholder { color: var(--muted); }
     main p { margin: 0 0 24px; line-height: 1.8; }
     main h2 { color: var(--pink); font-size: 26px; margin: 48px 0 20px; }
     main a { color: var(--pink); }
@@ -53,6 +60,7 @@
       .page { width: calc(100% - 40px); padding-top: 56px; }
       header { align-items: flex-start; flex-direction: column; gap: 24px; margin-bottom: 44px; }
       body { font-size: 18px; }
+      .devices-project { grid-template-columns: 1fr; gap: 28px; }
     }
   </style>
 </head>
@@ -67,8 +75,17 @@
         <p><a href="index.html">Home</a> &middot; <a href="robotics.html">Robotics</a></p>
       </nav>
       <p>My work on bespoke assistive devices for people living with neurological disabilities.</p>
-      <!-- ADD YOUR PROJECTS HERE.
-           Use <h2>Project name</h2> and <p>Project description</p> for each project. -->
+      <section class="devices-project" aria-labelledby="devices-heading">
+        <figure class="devices-figure">
+          <img class="devices-photo" src="images/devices.png" alt="Two presenters standing beside a table displaying assistive devices." width="864" height="1174">
+          <figcaption><strong>Figure 1:</strong> Presenting my assistive devices at the International MND Awareness Day</figcaption>
+        </figure>
+        <div class="devices-copy">
+          <h2 id="devices-heading">Assistive devices</h2>
+          <!-- Replace the paragraph below with your text. Add more <p> paragraphs as needed. -->
+          <p class="text-placeholder">I spent...</p>
+        </div>
+      </section>
     </main>
   </div>
   <script>
